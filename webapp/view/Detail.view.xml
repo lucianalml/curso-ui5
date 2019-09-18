@@ -6,50 +6,47 @@
 	<Page
 		title="{i18n>detailPageTitle}"
 		showNavButton="true"
-		navButtonPress=".onNavBack">
+		navButtonPress="onNavBack">
+		<landmarkInfo>
+			<PageAccessibleLandmarkInfo
+				rootRole="Region"
+				rootLabel="{i18n>Detail_rootLabel}"
+				contentRole="Main"
+				contentLabel="{i18n>Detail_contentLabel}"
+				headerRole="Banner"
+				headerLabel="{i18n>Detail_headerLabel}"/>
+		</landmarkInfo>
 		<ObjectHeader
+			responsive="true"
+			fullScreenOptimized="true"
+			number="{
+				parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+				type: 'sap.ui.model.type.Currency',
+				formatOptions: {
+					showMeasure: false
+				}
+			}"
+			numberUnit="{view>/currency}"
 			intro="{invoice>ShipperName}"
-			title="{invoice>ProductName}"/>
-		<wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange"/>
-
-		<List
-			growing="true"
-			growingScrollToLoad="true"
-			growingThreshold="20"
-			id="invoiceListShipper"
-				headerText="{i18n>invoiceListTitle}"
-				class="sapUiResponsiveMargin"
-				width="auto"
-				items="{
-					path : 'invoice>invoices',
-					parameters:{
-						expand: 'shipper'
+			title="{invoice>ProductName}">
+			<attributes>
+				<ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}"></ObjectAttribute>
+				<ObjectAttribute title="{i18n>dateTitle}" text="{
+					path: 'invoice>ShippedDate',
+					type: 'sap.ui.model.type.Date',
+					formatOptions: {
+					  style: 'long',
+					  source: {
+						pattern: 'yyyy-MM-ddTHH:mm:ss'
+					  }
 					}
-				}">
-			<items>
-				<ObjectListItem
-					title="{invoice>Quantity} x {invoice>ProductName}"
-					number="{
-						parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-						type: 'sap.ui.model.type.Currency',
-						formatOptions: {
-							showMeasure: false
-						}
-					}"
-					numberUnit="{view>/currency}"
-					numberState="{=	${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
-					>
-					<firstStatus>
-						<ObjectStatus text="{
-							path: 'invoice>Status',
-							formatter: '.formatter.statusText'
-						}"/>
-					</firstStatus>
-					<attributes>
-						<ObjectAttribute text="{invoice>shipper/Address}" />
-					</attributes>
-				</ObjectListItem>
-			</items>
-		</List>
+				  }"/>
+			</attributes>
+		</ObjectHeader>
+			<Panel
+				headerText="{i18n>ratingTitle}"
+				accessibleRole="Region">
+				<wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change="onRatingChange"/>
+			</Panel>
 	</Page>
 </mvc:View>
