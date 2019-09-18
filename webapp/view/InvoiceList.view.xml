@@ -2,7 +2,7 @@
 	controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<List
+<List
       growing="true"
       growingScrollToLoad="true"
       growingThreshold="20"
@@ -16,6 +16,9 @@
 				path : 'ShipperName',
 				descending: true,
 				group : true
+			},
+			parameters:{
+				expand: 'shipper'
 			}
 		}">
       <headerToolbar>
@@ -45,6 +48,9 @@
 						formatter: '.formatter.statusText'
 					}"/>
 				</firstStatus>
+				<attributes>
+					<ObjectAttribute text="{invoice>shipper/Address}" />
+				</attributes>
 			</ObjectListItem>
 		</items>
 	</List>
