@@ -1,11 +1,11 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/demo/walkthrough/controller/HelloDialog",
+    "llima/sap/ui/demo/walkthrough/controller/HelloDialog",
     "sap/ui/Device"
 ], function(UIComponent, JSONModel, HelloDialog, Device) {
     "use strict";
-    return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
+    return UIComponent.extend("llima.sap.ui.demo.walkthrough.Component", {
         metadata: {
             manifest: "json"
         },

@@ -5,7 +5,7 @@ sap.ui.define([
 ], function(ManagedObject, Fragment, syncStyleClass) {
     "use strict";
 
-    return ManagedObject.extend("sap.ui.demo.walkthrough.controller.HelloDialog", {
+    return ManagedObject.extend("llima.sap.ui.demo.walkthrough.controller.HelloDialog", {
 
         constructor: function(oView) {
             this._oView = oView;
@@ -28,7 +28,7 @@ sap.ui.define([
                 // load asynchronous XML fragment
                 Fragment.load({
                     id: oView.getId(),
-                    name: "sap.ui.demo.walkthrough.view.HelloDialog",
+                    name: "llima.sap.ui.demo.walkthrough.view.HelloDialog",
                     controller: oFragmentController
                 }).then(function(oDialog) {
                     // connect dialog to the root view of this component (models, lifecycle)

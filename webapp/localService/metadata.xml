@@ -20,7 +20,7 @@
     </Key>
     <Property Name="ShipperName" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Address" Type="Edm.String" Nullable="false" MaxLength="100" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-    <NavigationProperty Name="Invoices" Relationship="ZTREINA18_SRV.ShipperToInvoices" FromRole="FromRole_ShipperToInvoices" ToRole="ToRole_ShipperToInvoices"/>
+    <NavigationProperty Name="invoices" Relationship="ZTREINA18_SRV.ShipperToInvoices" FromRole="FromRole_ShipperToInvoices" ToRole="ToRole_ShipperToInvoices"/>
    </EntityType>
    <Association Name="ShipperToInvoices" sap:content-version="1">
     <End Type="ZTREINA18_SRV.Shipper" Multiplicity="1" Role="FromRole_ShipperToInvoices"/>

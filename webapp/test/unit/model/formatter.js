@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-    "sap/ui/demo/walkthrough/model/formatter",
+    "llima/sap/ui/demo/walkthrough/model/formatter",
     "sap/ui/model/resource/ResourceModel",
     "sap/ui/thirdparty/sinon",
     "sap/ui/thirdparty/sinon-qunit"
@@ -11,7 +11,7 @@ sap.ui.define([
     QUnit.module("Formatting functions", {
         beforeEach: function() {
             this._oResourceModel = new ResourceModel({
-                bundleUrl: sap.ui.require.toUrl("sap/ui/demo/walkthrough") + "/i18n/i18n.properties"
+                bundleUrl: sap.ui.require.toUrl("llima/sap/ui/demo/walkthrough") + "/i18n/i18n.properties"
             });
         },
         afterEach: function() {
